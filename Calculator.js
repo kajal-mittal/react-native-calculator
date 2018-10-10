@@ -7,11 +7,11 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Button from './Button';
 import CalculatorOutputDisplay from './CalculatorOutputDisplay';
 
-export default class App extends Component {
+export default class Calculator extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -87,16 +87,6 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: 'black'
-	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5
 	},
 	square: {
 		borderStyle: 'solid',
