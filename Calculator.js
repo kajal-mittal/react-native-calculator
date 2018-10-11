@@ -79,7 +79,7 @@ export default class Calculator extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}
 				text={operation}
-				type={'OPERATION'}
+				type={operation == 'C' ? 'RESET' : 'OPERATION'}
 			/>
 		);
 	}
