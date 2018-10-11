@@ -60,6 +60,7 @@ export default class Calculator extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}
 				text={value}
+				type={'NUMBER'}
 			/>
 		);
 	}
@@ -78,6 +79,7 @@ export default class Calculator extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}
 				text={operation}
+				type={'OPERATION'}
 			/>
 		);
 	}

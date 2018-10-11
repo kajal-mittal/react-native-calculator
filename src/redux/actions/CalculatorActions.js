@@ -1,13 +1,7 @@
 import { ADD_NUMBER, OPERATION } from './types';
-export const number = number => {
+export const performAction = action => {
 	return {
-		type: ADD_NUMBER,
-		number: number
-	};
-};
-export const operation = operation => {
-	return {
-		type: OPERATION,
-		operation: operation
+		type: action.type,
+		value: action.value
 	};
 };

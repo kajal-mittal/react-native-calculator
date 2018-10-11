@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class CalculatorOutputDisplay extends Component {
+class CalculatorOutputDisplay extends Component {
 	render() {
 		return (
 			<View
@@ -13,10 +14,20 @@ export default class CalculatorOutputDisplay extends Component {
 					justifyContent: 'center'
 				}}
 			>
-				<Text style={{ color: 'white', fontSize: 50, fontWeight: 'bold', alignItems: 'center' }}>0</Text>
+				<Text style={{ color: 'white', fontSize: 50, fontWeight: 'bold', alignItems: 'center' }}>
+					{this.props.value}
+				</Text>
 			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({});
+// Pass it as the first argument to our connect function.
+const mapStateToProps = state => {
+	return {
+		value: state.calculator_reducer.value
+	};
+};
+
+export default connect(mapStateToProps)(CalculatorOutputDisplay);
