@@ -16,7 +16,7 @@ export default class Calculator extends Component {
 		return (
 			<View style={styles.container}>
 				<CalculatorOutputDisplay />
-				<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+				<View style={{ alignItems: 'center', bottom: 0 }}>
 					<View style={styles.row}>
 						{this.renderNumberButton('7')}
 						{this.renderNumberButton('8')}
@@ -49,7 +49,7 @@ export default class Calculator extends Component {
 		return (
 			<Button
 				style={[
-					styles.square,
+					styles.circle,
 					{
 						backgroundColor: '#333333',
 						width: 60,
@@ -79,7 +79,7 @@ export default class Calculator extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}
 				text={operation}
-				type={operation == 'C' ? 'RESET' : 'OPERATION'}
+				type={'OPERATION'}
 			/>
 		);
 	}
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: 'black'
 	},
-	square: {
+	circle: {
 		borderStyle: 'solid',
 		borderRightWidth: 1,
 		borderBottomWidth: 1
