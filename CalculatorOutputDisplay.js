@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, Platform, Dimensions } from 'react-native';
+import { StyleSheet, Text, ScrollView, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 const { height } = Dimensions.get('window');
 
