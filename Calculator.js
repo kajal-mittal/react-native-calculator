@@ -15,8 +15,10 @@ export default class Calculator extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<CalculatorOutputDisplay />
-				<View style={{ alignItems: 'center', bottom: 0 }}>
+				<View style={styles.outputContainer}>
+					<CalculatorOutputDisplay />
+				</View>
+				<View style={styles.actionContainer}>
 					<View style={styles.row}>
 						{this.renderNumberButton('7')}
 						{this.renderNumberButton('8')}
@@ -38,7 +40,7 @@ export default class Calculator extends Component {
 					<View style={styles.row}>
 						{this.renderNumberButton('0')}
 						{this.renderActionButton('=')}
-						{this.renderActionButton('%')}
+						{this.renderActionButton('/')}
 						{this.renderActionButton('C')}
 					</View>
 				</View>
@@ -88,7 +90,19 @@ export default class Calculator extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: 'black'
+		flexDirection: 'column'
+	},
+	actionContainer: {
+		flex: 0.7,
+		backgroundColor: 'black',
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	outputContainer: {
+		flex: 0.3,
+		backgroundColor: '#333333',
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
 	circle: {
 		borderStyle: 'solid',
@@ -97,7 +111,7 @@ const styles = StyleSheet.create({
 	},
 	row: {
 		flexDirection: 'row',
-		alignContent: 'stretch',
-		flexWrap: 'wrap'
+		alignItems: 'center',
+		justifyContent: 'center'
 	}
 });

@@ -1,14 +1,5 @@
 import React, { Component } from 'react';
-import {
-	GestureResponderEvent,
-	StyleProp,
-	StyleSheet,
-	Text,
-	TextStyle,
-	TouchableOpacity,
-	View,
-	ViewStyle
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import * as actions from './src/redux/actions';
 
