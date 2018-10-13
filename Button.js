@@ -9,13 +9,24 @@ import {
 	View,
 	ViewStyle
 } from 'react-native';
+import { connect } from 'react-redux';
+import * as actions from './src/redux/actions';
 
-export default class Button extends Component {
+class Button extends Component {
 	render() {
-		const { style, text, textStyle, onPress } = this.props;
+		const { style, text, textStyle, onPress, type } = this.props;
 
 		return (
-			<TouchableOpacity style={[style]}>
+			<TouchableOpacity
+				style={[style]}
+				onPress={() => {
+					let value = {
+						type: type,
+						value: text
+					};
+					this.props.value(value);
+				}}
+			>
 				<View style={styles.container}>
 					<Text style={textStyle}>{text}</Text>
 				</View>
@@ -31,3 +42,19 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	}
 });
+const mapStateToProps = state => {
+	return {
+		value: state.calculator_reducer.value
+	};
+};
+const mapDispatchToProps = dispatch => {
+	return {
+		value: value => dispatch(actions.performAction(value))
+	};
+};
+// Pass it as the first argument to our connect function.
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Button);

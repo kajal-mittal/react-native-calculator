@@ -7,16 +7,16 @@
  */
 
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Button from './Button';
 import CalculatorOutputDisplay from './CalculatorOutputDisplay';
 
-export default class App extends Component {
+export default class Calculator extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<CalculatorOutputDisplay />
-				<View style={{ justifyContent: 'center', alignItems: 'center' }}>
+				<View style={{ alignItems: 'center', bottom: 0 }}>
 					<View style={styles.row}>
 						{this.renderNumberButton('7')}
 						{this.renderNumberButton('8')}
@@ -49,7 +49,7 @@ export default class App extends Component {
 		return (
 			<Button
 				style={[
-					styles.square,
+					styles.circle,
 					{
 						backgroundColor: '#333333',
 						width: 60,
@@ -60,6 +60,7 @@ export default class App extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}
 				text={value}
+				type={'NUMBER'}
 			/>
 		);
 	}
@@ -78,6 +79,7 @@ export default class App extends Component {
 				]}
 				textStyle={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}
 				text={operation}
+				type={'OPERATION'}
 			/>
 		);
 	}
@@ -88,17 +90,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: 'black'
 	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10
-	},
-	instructions: {
-		textAlign: 'center',
-		color: '#333333',
-		marginBottom: 5
-	},
-	square: {
+	circle: {
 		borderStyle: 'solid',
 		borderRightWidth: 1,
 		borderBottomWidth: 1
