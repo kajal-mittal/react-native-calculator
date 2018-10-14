@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Button from './Button';
 import CalculatorOutputDisplay from './CalculatorOutputDisplay';
-
+import { Colors, ViewStyles } from './src/theme';
 export default class Calculator extends Component {
 	render() {
 		return (
@@ -19,25 +19,25 @@ export default class Calculator extends Component {
 					<CalculatorOutputDisplay />
 				</View>
 				<View style={styles.actionContainer}>
-					<View style={styles.row}>
+					<View style={ViewStyles.row}>
 						{this.renderNumberButton('7')}
 						{this.renderNumberButton('8')}
 						{this.renderNumberButton('9')}
 						{this.renderActionButton('*')}
 					</View>
-					<View style={styles.row}>
+					<View style={ViewStyles.row}>
 						{this.renderNumberButton('4')}
 						{this.renderNumberButton('5')}
 						{this.renderNumberButton('6')}
 						{this.renderActionButton('-')}
 					</View>
-					<View style={styles.row}>
+					<View style={ViewStyles.row}>
 						{this.renderNumberButton('1')}
 						{this.renderNumberButton('2')}
 						{this.renderNumberButton('3')}
 						{this.renderActionButton('+')}
 					</View>
-					<View style={styles.row}>
+					<View style={ViewStyles.row}>
 						{this.renderNumberButton('0')}
 						{this.renderActionButton('=')}
 						{this.renderActionButton('/')}
@@ -51,16 +51,12 @@ export default class Calculator extends Component {
 		return (
 			<Button
 				style={[
-					styles.circle,
+					ViewStyles.circle,
 					{
-						backgroundColor: '#333333',
-						width: 60,
-						height: 60,
-						borderRadius: 30,
-						margin: 10
+						backgroundColor: Colors.COLOR_NUMBER_BUTTON
 					}
 				]}
-				textStyle={{ color: 'white', fontSize: 24, fontWeight: 'bold' }}
+				textStyle={{ color: Colors.COLOR_WHITE, fontSize: 24, fontWeight: 'bold' }}
 				text={value}
 				type={'NUMBER'}
 			/>
@@ -70,16 +66,12 @@ export default class Calculator extends Component {
 		return (
 			<Button
 				style={[
-					styles.square,
+					ViewStyles.circle,
 					{
-						backgroundColor: 'orange',
-						width: 60,
-						height: 60,
-						borderRadius: 30,
-						margin: 10
+						backgroundColor: Colors.COLOR_ACTION_BUTTON
 					}
 				]}
-				textStyle={{ color: 'white', fontSize: 30, fontWeight: 'bold' }}
+				textStyle={{ color: Colors.COLOR_WHITE, fontSize: 30, fontWeight: 'bold' }}
 				text={operation}
 				type={'OPERATION'}
 			/>
@@ -89,12 +81,12 @@ export default class Calculator extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		...ViewStyles.container,
 		flexDirection: 'column'
 	},
 	actionContainer: {
 		flex: 0.7,
-		backgroundColor: 'black',
+		backgroundColor: Colors.COLOR_BLACK,
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
@@ -103,15 +95,5 @@ const styles = StyleSheet.create({
 		backgroundColor: '#333333',
 		justifyContent: 'center',
 		alignItems: 'center'
-	},
-	circle: {
-		borderStyle: 'solid',
-		borderRightWidth: 1,
-		borderBottomWidth: 1
-	},
-	row: {
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center'
 	}
 });
