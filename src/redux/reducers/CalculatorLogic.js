@@ -90,7 +90,7 @@ class CalculatorLogic {
 				return subtract();
 			case '*':
 				return multiply();
-			case '%':
+			case '/':
 				return divide();
 			default:
 				throw new Error(`Invalid operation: ${this.operation}`);
